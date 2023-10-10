@@ -1,0 +1,1 @@
+# Symptoms-Oriented-Covid-19-Prediction
