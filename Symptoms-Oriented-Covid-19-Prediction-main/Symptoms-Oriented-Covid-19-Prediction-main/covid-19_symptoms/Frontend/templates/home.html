@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--{% block title %}|Home {% endblock %}-->
+
+<style>
+    body{
+        background-color:#FFF;
+    }
+
+    #home{
+    width:120vw;
+    height:70vh;
+    background:url('/static/background/doctor.jpeg');
+    background-repeat:no-repeat;
+    background-size:130% 100vh;
+    margin:-5% 0  0 -20% ;
+    font-family:tahoma;
+    }
+
+    .start-data{
+        position:relative;
+        top:20vh;
+        left:20%;
+    }
+
+    .start-data h1{
+        font-weight:600;
+        font-style:bold;
+        color:rgb(10,15,55);
+        font-size:50px;
+        font-family:tahoma;
+    }
+
+    .start-data button{
+        background:rgb(78, 135, 100);
+        border-radius:20px;
+        height:40px;
+        padding:5px 20px;
+    }
+
+    .start-data a{
+    text-decoration:none;
+    }
+
+    .flex-box{
+        position:relative;
+        top:35vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:30px;
+        margin-bottom:30px;
+    }
+
+    .flex-box div{
+        background:#FFF;
+        width:230px;
+        height:400px;
+        box-shadow:2px 2px 2px 2px #000;
+        text-align:center;
+        padding:10px;
+    }
+
+    .flex-box h1{
+        font-size:20px;
+        margin-bottom:20px;
+        font-weight:700;
+    }
+
+    .flex-box .first-box{
+        width:300px;
+        background:rgb(23, 190, 219);
+        color:white;
+        padding:10px 15px;
+    }
+
+    .flex-box .first-box h1{
+        font-size:30px;
+    }
+
+    .box span{
+    color:blue;
+    margin-bottom:10px;
+    }
+</style>
+
+        <div id="home" >
+                <div class="start-data">
+                    <h1>COVID PREDICTOR</h1>
+                    <!-- <h6>Powered by Machine Learning Algorithm</h6> -->
+                    <button><a href="/prediction">GET PREDICTIONS</a></button>
+                </div>
+
+            <div class="flex-box">
+                <div class="first-box box">
+                    <h1>Why Try COVID Predictor?</h1>
+                    <p>Early diagnosis is crucial to prevent the development of the disease that may cause danger to human lives.
+                        This web application can be used to predict the presence of COVID-19 using symptoms.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <span class="fa fa-male fa-2x"></span>
+                     <h1>COVID-19 Symptoms</h1>
+                    <p>COVID-19 affects different people in differnt ways. Most infected people will develop mild to moderate illness and recover without
+                        hospitalization.
+                    </p>
+                </div>
+
+                <div class="box">
+                     <span class="fa fa-bell fa-2x"></span>
+                     <h1>WHO Advice for the Public</h1>
+                    <p>Stay safe by physical distancing, wearing a mask, keeping rooms well ventilated, avoiding crowds, cleaning your hands,
+                        and coughing into a bent elbow or tissue.
+                    </p>
+                </div>
+
+                <div class="box">
+			        <span class="fa fa-link fa-2x"></span>
+                     <h1>WHO (COVID-19) Dashboard</h1>
+                    <p>The World Health Organization updates the public regarding the number of confirmed cases, death cases and total doses
+                        of vaccines administered.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+
+
+
+

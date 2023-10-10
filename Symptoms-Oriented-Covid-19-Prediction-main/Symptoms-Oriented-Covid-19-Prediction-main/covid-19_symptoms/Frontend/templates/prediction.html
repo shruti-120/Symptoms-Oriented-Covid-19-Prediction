@@ -1,0 +1,324 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<link rel="stylesheet" href="/static/styles.css" />
+
+<style type="text/css">
+  body {
+  color:white;
+    background: #84F0EC;
+    background: -webkit-linear-gradient(top left, #84F0EC, #E9EEE7);
+    background: -moz-linear-gradient(top left, #84F0EC, #E9EEE7);
+    background: linear-gradient(to bottom right, #84F0EC, #E9EEE7);
+}
+  .button {
+      background-color: #4CAF50;
+      border-radius: 5px;
+      color: white;
+      padding: 8px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      width:100%;
+      height:40px;
+      border-radius:20px;
+      font-size:20px;
+}
+
+form{
+    width:100%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.4px);
+    -webkit-backdrop-filter: blur(3.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color:black;
+}
+
+.questions{
+  width:100%;
+  font-size:20px;
+  font-weight: bold;
+  font-family:san-serif;
+  color:black;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  position:relative;
+  flex-wrap:wrap;
+}
+
+.questions .outer-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+    width:300px;
+    height:250px;
+    margin:10px;
+    box-shadow:2px 3px 3px 3px #000;
+}
+
+form input{
+width:50px;
+height:15px;
+}
+
+.inner-content{
+    margin:6px 10px;
+}
+
+h4{
+text-align:center;
+text-transform:uppercase;
+}
+
+label{
+font-family:san-serif;
+}
+
+.symptom-img{
+width:80px;
+display:block;
+}
+</style>
+
+
+<form action="\predict" method="post"  enctype="multipart/form-data">
+    <h4>Select the Symptoms You Experienced</h4>
+    <hr>
+   <div class="questions">
+       <div class="outer-content">
+         <label> 1) Breathing Problem:</label>
+           <img class="symptom-img" src="/static/symptoms/breathing.png">
+           <div class="inner-content">
+               <input type="radio" id="bpy" name="bp" required value="1" >
+               <label for="bpy">Yes</label>
+               <input type="radio" id="bpn" name="bp" value="0" >
+               <label for="bpn">No</label>
+           </div>
+       </div>
+
+       <div class="outer-content">
+           <label>2) Fever:</label>
+           <img class="symptom-img" src="/static/symptoms/fever.png"><br>
+            <div class="inner-content">
+               <input type="radio" id="fvy" name="fv"  required  value="1" >
+               <label for="fvy">Yes</label>
+               <input type="radio" id="fvn" name="fv" value="0" >
+               <label for="fvn">No</label>
+            </div>
+       </div>
+
+       <div class="outer-content">
+         <label>3) Dry Cough:</label>
+           <img class="symptom-img" src="/static/symptoms/cough.png"><br>
+           <div class="inner-content">
+                 <input type="radio" id="dcy" name="dc"  required  value="1" >
+                 <label for="dcy">Yes</label>
+                 <input type="radio" id="dcn" name="dc" value="0" >
+                 <label for="dcn">No</label>
+           </div>
+       </div>
+
+       <div class="outer-content">
+          <label>4) Sore throat:</label>
+           <img class="symptom-img" src="/static/symptoms/sorethroat.png"><br>
+            <div class="inner-content">
+                <input type="radio" id="sty" name="st" required value="1" >
+                <label for="sty">Yes</label>
+                <input type="radio" id="stn" name="st" value="0" >
+                <label for="stn">No</label>
+            </div>
+       </div>
+
+       <div class="outer-content">
+          <label>5) Running Nose:</label>
+           <img class="symptom-img" src="/static/symptoms/runnynose.png"><br>
+           <div class="inner-content">
+                <input type="radio" id="rny" name="rn" required value="1" >
+                <label for="rny">Yes</label>
+                <input type="radio" id="rnn" name="rn" value="0" >
+                <label for="rnn">No</label>
+           </div>
+       </div>
+
+      <div class="outer-content">
+        <label>6) Asthma:</label>
+          <img class="symptom-img" src="/static/symptoms/asthma.png"><br>
+         <div class="inner-content">
+            <input type="radio" id="amy" name="am" required  value="1" >
+            <label for="amy">Yes</label>
+            <input type="radio" id="amn" name="am" value="0" >
+            <label for="amn" >No</label>
+         </div>
+      </div>
+
+
+       <div class="outer-content">
+        <label>7) Chronic Lung Disease:</label>
+           <img class="symptom-img" src="/static/symptoms/fever.png"><br>
+            <div class="inner-content">
+                <input type="radio" id="cldy" name="cld" required  value="1" >
+                <label for="cldy">Yes</label>
+                <input type="radio" id="cldn" name="cld" value="0" >
+                <label for="cldn"  >No</label>
+            </div>
+       </div>
+
+        <div class="outer-content">
+            <label>8) Headache:</label>
+            <img class="symptom-img" src="/static/symptoms/headache.png"><br>
+              <div class="inner-content">
+                <input type="radio" id="hcy" name="hc" required  value="1" >
+                <label for="hcy">Yes</label>
+                <input type="radio" id="hcn" name="hc" value="0" >
+                <label for="hcn">No</label>
+              </div>
+        </div>
+
+       <div class="outer-content">
+          <label>9) Heart Disease:</label>
+           <img class="symptom-img" src="/static/symptoms/heart.png"><br>
+            <div class="inner-content">
+                <input type="radio" id="hdy" name="hd" required  value="1" >
+                <label for="hdy">Yes</label>
+                <input type="radio" id="hdn" name="hd" value="0" >
+                <label for="hdn" >No</label>
+            </div>
+       </div>
+
+       <div class="outer-content">
+         <label>10) Diabetes:</label>
+           <img class="symptom-img" src="/static/symptoms/diabetes.png"><br>
+          <div class="inner-content">
+                <input type="radio" id="dby" name="db" required  value="1" >
+                <label for="dby">Yes</label>
+                <input type="radio" id="dbn" name="db" value="0" >
+                <label for="dbn" >No</label>
+          </div>
+       </div>
+
+      <div class="outer-content">
+        <label>11) Hyper Tension:</label>
+          <img class="symptom-img" src="/static/symptoms/hypertension.png"><br>
+          <div class="inner-content">
+                <input type="radio" id="hty" name="ht" required  value="1" >
+                <label for="hty">Yes</label>
+                <input type="radio" id="htn" name="ht" value="0" >
+                <label for="htn">No</label>
+          </div>
+      </div>
+
+
+       <div class="outer-content">
+        <label>12) Fatigue:</label>
+           <img class="symptom-img" src="/static/symptoms/fatigue.png"><br>
+          <div class="inner-content">
+            <input type="radio" id="fty" name="ft" required  value="1" >
+            <label for="fty">Yes</label>
+            <input type="radio" id="ftn" name="ft" value="0" >
+            <label for="ftn">No</label>
+          </div>
+       </div>
+
+        <div class="outer-content">
+            <label>13) Gastrointestinal:</label>
+            <img class="symptom-img" src="/static/symptoms/fever.png"><br>
+              <div class="inner-content">
+                <input type="radio" id="giy" name="gi" required  value="1" >
+                <label for="giy">Yes</label>
+                <input type="radio" id="gin" name="gi" value="0" >
+                <label for="gin">No</label>
+              </div>
+        </div>
+
+         <div class="outer-content">
+             <label>14) Abroad travel:</label>
+             <img class="symptom-img" src="/static/symptoms/abroad2.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="aty" name="at" required  value="1" >
+                    <label for="aty">Yes</label>
+                    <input type="radio" id="atn" name="at" value="0" >
+                    <label for="atn">No</label>
+                </div>
+         </div>
+
+
+        <div class="outer-content">
+            <label>15) Contact with COVID Patient:</label>
+            <img class="symptom-img" src="/static/symptoms/contact.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="cwcpy" name="cwcp" required  value="1" >
+                    <label for="cwcpy">Yes</label>
+                    <input type="radio" id="cwcpn" name="cwcp" value="0" >
+                    <label for="cwcpn">No</label>
+                </div>
+        </div>
+
+
+         <div class="outer-content">
+             <label>16) Attended Large Gatherung:</label>
+             <img class="symptom-img" src="/static/symptoms/large.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="algy" name="alg" required  value="1" >
+                    <label for="algy">Yes</label>
+                    <input type="radio" id="algn" name="alg" value="0" >
+                    <label for="algn">No</label>
+                </div>
+         </div>
+
+         <div class="outer-content">
+            <label>17) Visited Public Exposed Places:</label>
+             <img class="symptom-img" src="/static/symptoms/visited.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="vpepy" name="vpep" required  value="1" >
+                    <label for="vpepy">Yes</label>
+                    <input type="radio" id="vpepn" name="vpep" value="0" >
+                    <label for="vpepn">No</label>
+                </div>
+         </div>
+
+          <div class="outer-content">
+            <label>18) Family working in Public Exposed Places:</label>
+              <img class="symptom-img" src="/static/symptoms/public.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="fwipepy" name="fwipep" required  value="1" >
+                    <label for="fwipepy">Yes</label>
+                    <input type="radio" id="fwipepn" name="fwipep" required  value="0" >
+                    <label for="fwipepn">No</label>
+                </div>
+          </div>
+
+        <div class="outer-content">
+            <label>19) Wearing Masks:</label>
+            <img class="symptom-img" src="/static/symptoms/fever.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="wmy" name="wm" required  value="1" >
+                    <label for="wmy">Yes</label>
+                    <input type="radio" id="wmn" name="wm" value="0" >
+                    <label for="wmn">No</label>
+                </div>
+        </div>
+
+          <div class="outer-content">
+             <label>20) Sanitization from Market:</label>
+              <img class="symptom-img" src="/static/symptoms/fever.png"><br>
+                <div class="inner-content">
+                    <input type="radio" id="sfmy" name="sfm" required  value="1" >
+                    <label for="sfmy">Yes</label>
+                    <input type="radio" id="sfmn" name="sfm" value="0" >
+                    <label for="sfmn">No</label>
+                </div>
+          </div>
+  </div>
+
+    <input type="submit" class="button" value="Submit">
+</form><br>
+{% endblock %}

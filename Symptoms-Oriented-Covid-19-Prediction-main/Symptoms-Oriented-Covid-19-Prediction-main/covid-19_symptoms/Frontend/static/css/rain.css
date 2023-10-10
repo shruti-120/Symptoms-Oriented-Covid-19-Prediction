@@ -1,0 +1,76 @@
+*{
+     margin:0;
+     padding:0;
+}
+
+     @media  screen and (max-width: 805px){ .predict{width:100%;} .predict span{font-size:0.5rem;} #password_page{ width:100%;} .image1{margin-top:20px;}}
+     @media  screen and (min-width: 805px) and (max-width: 1020px){.predict{width:80%;} .predict span{font-size:1rem;} #password_page{ width:70%;}}
+     @media  screen and (min-width: 805px){ .predict{width:70%;} #password_page{ width:60%;} .image1{margin-left:50px;}}
+
+  .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+ body{
+        width:100%;
+       min-height:100vh;
+       background-color:#FFF;
+ }
+
+
+.content{
+         width:90%;
+         min-height:80vh;
+         top:0px;
+         padding-left:100px;
+        letter-spacing: 2px;
+
+}
+
+  div a{
+         color:white;
+        text-decoration:none;
+}
+
+
+.graphs{
+width:70%;
+height:60%;
+}
+.second-h2{
+font-size:40px;
+}
+
+.matrix{
+background-color:white;
+}
+
+.result{
+     width:90%;
+     height:80px;
+     background-color:white;
+     text-align:center;
+     padding-top:15px;
+}
+
+.background{
+background-image: url('/static/background/img3.webp');
+background-repeat:no-repeat;
+background-size:100% 100%;
+}
+
+.colors{background-color:#006994;
+color:#00FFFF;
+}

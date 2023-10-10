@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.navbar{
+    background-color: rgb(23, 190, 219);
+    color:rgb(246, 249, 250);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    line-height: 4rem;
+}
+
+.nav_title{
+font-weight:600;
+font-family:san-serif;
+}
+
+.left h1{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#check{
+    display: none;
+}
+
+.checkBtn{
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    float: left;
+    color: #ed1e79;
+    line-height: 80px;
+}
+
+.right ul{
+    display: flex;
+    list-style: none;
+}
+
+.right ul a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    transition: all 1s;
+    color: white;
+}
+
+.right ul a:hover{
+    background-color: white;
+    border-radius: 7px;
+    color: rgb(27,7,36);
+}
+
+@media  screen and (max-width: 805px){
+     .list{
+        width: 30%;
+        height: 100vh;
+        text-align: center;
+        flex-direction: column;
+        top: 6.7rem;
+        left: 100%;
+        position: fixed;
+        transition: all 1s;
+     }
+
+     .checkBtn{
+        display: block;
+     }
+
+     #check:checked~ul {
+       left: 70%;
+       background-color: rgb(93, 122, 235);
+       z-index:10;
+     }
+
+}
+
+.dropdown-toggle{
+       background:transparent;
+       border:none;
+       font-size:20px;
+       color:white;
+      margin-left:10px;
+}
+
+.dropdown-menu .dropdown-item{
+          background:black;
+          color:white;
+}
+
+.rain_text{
+         font-size:40px;
+         color:pink;
+         font-weight:800;
+         font-family:sans-serif
+}

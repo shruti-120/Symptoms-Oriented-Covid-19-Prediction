@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--{% block title %}Graphs Page {% endblock %}-->
+
+<!--    <script-->
+<!--      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"-->
+<!--      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"-->
+<!--      crossorigin="anonymous"-->
+<!--    ></script>-->
+
+    <style>
+      .btn {
+        margin-left: 10%;
+        margin-top: 1%;
+        width: 80%;
+        background-color: white;
+        color: black;
+        border: 2px solid #008cba;
+      }
+
+      #image1,
+      #image2,
+      #image3 {
+        width: 60%;
+        height: 450px;
+        margin-left: 20%;
+      }
+
+      #i_example1 {
+        background: #020b07;
+        background: -webkit-linear-gradient(bottom left, #020b07, #e9eee7);
+        background: -moz-linear-gradient(bottom left, #020b07, #e9eee7);
+        background: linear-gradient(to top right, #020b07, #e9eee7);
+      }
+      a {
+        text-decoration: none;
+      }
+      #broken-img {
+        display: none;
+      }
+    </style>
+ <br />
+  <br />
+
+  <body id="i_example1">
+
+    <div>
+      <!-- <h1>Online Images with Buttons</h1> -->
+      <button onclick="changeImages(1)" class="btn btn-primary">
+        ARTIFICIAL NEURAL NETWORK
+      </button>
+      <br />
+      <button onclick="changeImages(2)" class="btn btn-primary">
+        KNEIGHBORS CLASSIFIER
+      </button>
+      <br />
+      <button onclick="changeImages(3)" class="btn btn-primary">
+        NAIVE BAYES CLASSIFIER
+      </button>
+      <br />
+      <button onclick="changeImages(4)" class="btn btn-primary">
+        RONDOM FOREST CLASSIFIER
+      </button>
+      <br />
+      <button onclick="changeImages(5)" class="btn btn-primary">
+        SUPPORT VECTOR CLASSIFIER</button
+      ><br />
+      <button onclick="changeImages(6)" class="btn btn-primary">
+        ACCURACY COMPARISION PLOT
+      </button>
+      <br />
+      <br />
+      <div id="broken-img">
+        <img id="image1" src="" alt="a" /><br /><br />
+        <img id="image2" src="" alt="b" /><br /><br />
+        <img id="image3" src="" alt="c" /><br /><br />
+      </div>
+    </div>
+
+    <script>
+      function changeImages(buttonNumber) {
+        var broken_img = document.getElementById("broken-img");
+        var img1 = document.getElementById("image1");
+        var img2 = document.getElementById("image2");
+        var img3 = document.getElementById("image3");
+
+        switch (buttonNumber) {
+          case 1:
+            broken_img.style.display = "block";
+            img1.src = "/static/graphs/ArtificialNeuralNetwork/ALPG.png";
+            img2.src = "/static/graphs/ArtificialNeuralNetwork/CM.png";
+            img3.src = "/static/graphs/ArtificialNeuralNetwork/CR.png";
+            img2.style.display = "block";
+            img3.style.display = "block";
+            break;
+          case 2:
+            broken_img.style.display = "block";
+            img1.src = "/static/graphs/KNeighborsClassifier/CM.png";
+            img2.src = "/static/graphs/KNeighborsClassifier/CR.png";
+            img3.style.display = "none";
+            img2.style.display = "block";
+            break;
+          case 3:
+            broken_img.style.display = "block";
+            img1.src = "/static/graphs/NaiveBayesClassifier/CM.png";
+            img2.src = "/static/graphs/NaiveBayesClassifier/CR.png";
+            img3.style.display = "none";
+            img2.style.display = "block";
+            break;
+          case 4:
+            broken_img.style.display = "block";
+            img1.src = "/static/graphs/RandomForestClassifier/CM.png";
+            img2.src = "/static/graphs/RandomForestClassifier/CR.png";
+            img3.style.display = "none";
+            img2.style.display = "block";
+            break;
+          case 5:
+            broken_img.style.display = "block";
+            img1.src = "/static/graphs/SupportVectorClassifier/CM.png";
+            img2.src = "/static/graphs/SupportVectorClassifier/CR.png";
+            img3.style.display = "none";
+            img2.style.display = "block";
+            break;
+          case 6:
+            broken_img.style.display = "block";
+            img1.src = "/static/graphs/Accuracy_Comparision_Plot.png";
+            img2.style.display = "none";
+            img3.style.display = "none";
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+{% endblock %}
